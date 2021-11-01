@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    tools:context=".Activity.signin">
+
+    <ImageView
+        android:layout_width="484dp"
+        android:layout_height="245dp"
+        android:src="@drawable/food" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.03"
+        android:text="Login"
+        android:textColor="@color/food"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:background="@drawable/forget"
+        android:hint="Email"
+        android:textColor="@color/food"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="20dp"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:inputType="textPassword"
+        android:background="@drawable/forget"
+        android:hint="Password"
+        android:textColor="@color/food"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/forgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forget Password?"
+        android:textColor="@color/food"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="35dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signin"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_login"
+        android:text="Login"
+        android:shadowColor="@color/food"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/sig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Sign Up"
+        android:textColor="@color/food"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="15dp"/>
+
+    <ProgressBar
+        android:layout_width="67dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        android:id="@+id/progressBar"
+        android:outlineSpotShadowColor="@color/food" />
+
+</LinearLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+
+    tools:context=".Activity.SIngUp">
+
+    <ImageView
+        android:layout_width="268dp"
+        android:layout_height="144dp"
+        android:src="@drawable/food" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.03"
+        android:text="Register"
+        android:textColor="@color/food"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:background="@drawable/forget"
+        android:hint="Full Name"
+        android:textColor="@color/food"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="20dp"/>
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:background="@drawable/forget"
+        android:hint="Email"
+        android:textColor="@color/food"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:inputType="textPassword"
+        android:background="@drawable/forget"
+        android:hint="Password"
+        android:textColor="@color/food"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="20dp"/>
+    <EditText
+        android:id="@+id/Number"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:inputType="phone"
+        android:background="@drawable/forget"
+        android:hint="Phone number"
+        android:textColor="@color/food"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="20dp"/>
+
+
+    <!--    <TextView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Forget Password?"-->
+    <!--        android:textColor="@color/food"-->
+    <!--        android:textStyle="bold"-->
+    <!--        android:textSize="18dp"-->
+    <!--        android:layout_gravity="end"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_marginRight="35dp"/>-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/SignUP"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_login"
+        android:text="Register"
+        android:shadowColor="@color/food"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already Registered? Sign In!"
+        android:textColor="@color/food"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="15dp"/>
+
+    <ProgressBar
+        android:layout_width="67dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        android:id="@+id/progressBar"
+        android:outlineSpotShadowColor="@color/food" />
+
+
+</LinearLayout>
