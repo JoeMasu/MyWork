@@ -1,16 +1,22 @@
 package com.example.project.Activity;
 
 public class User {
-   public String full;
-   public String phone;
-   public String email;
+    String email, full, phone;
 
     public User() {
     }
 
-    public User(String full, String phone, String email) {
+    public User(String email, String full, String phone) {
+        this.email = email;
         this.full = full;
         this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -28,13 +34,5 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

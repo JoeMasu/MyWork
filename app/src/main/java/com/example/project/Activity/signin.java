@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.project.Admin.adminHome;
 import com.example.project.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -22,7 +23,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import org.jetbrains.annotations.NotNull;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.NotNull;
+
+//import org.jetbrains.annotations.NotNull;
 public class signin extends AppCompatActivity {
     EditText MEmail, MPassword;
     AppCompatButton siginn;
@@ -30,6 +38,8 @@ public class signin extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     TextView textView;
     TextView textView2;
+    private String UserId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +52,8 @@ public class signin extends AppCompatActivity {
         siginn.getResources().getColor(R.color.food);
         textView = findViewById(R.id.sig);
         textView2 = findViewById(R.id.forgot);
-
         firebaseAuth = FirebaseAuth.getInstance();
+        UserId = firebaseAuth.getCurrentUser().getUid();
         siginn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +75,8 @@ public class signin extends AppCompatActivity {
                     return;
                 }
                 progressBar.setVisibility(View.VISIBLE);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("Users").child(UserId);
 
                 firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -73,12 +85,17 @@ public class signin extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Intent intent = new Intent(signin.this,MainActivity.class);
                             startActivity(intent);
-                            finishAffinity();
                             Toast.makeText(signin.this, "logged successfully ", Toast.LENGTH_SHORT).show();
 
                         }
+                        if (email.startsWith("admin@gmail")){
+                            Toast.makeText(signin.this, "Logged in as Admin", Toast.LENGTH_SHORT).show();
+                            Intent intToHome = new Intent(signin.this, adminHome.class);
+                            startActivity(intToHome);
+
+                        }
                         else {
-                            Toast.makeText(signin.this, "Can't login, Try Again" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(signin.this, "Can't login, Try Again" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }
@@ -113,7 +130,6 @@ public class signin extends AppCompatActivity {
                                 Toast.makeText(signin.this, "Reset Link Sent To Your Email", Toast.LENGTH_SHORT).show();
 
                             }
-                            //on failure to send the link,  Toast.makeText(LoginActivity.this, "Error! Reset Link Is Not Sent" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull @NotNull Exception e) {

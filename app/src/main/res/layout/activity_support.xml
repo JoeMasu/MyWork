@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Admin.Support">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tab"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:id="@+id/message"
+            android:text="Messages"
+            android:textColor="@color/black"
+            android:background="@drawable/button_login"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/notifications"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/black"
+            android:text="Send Notification"
+            android:background="@drawable/button_login"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_below="@+id/tab"
+        android:id="@+id/notificationtab"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:text="New Notification"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"/>
+
+        <EditText
+            android:id="@+id/notification_title"
+            android:layout_marginTop="50dp"
+            android:hint="add notification title"
+            android:textColorHint="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"/>
+
+        <EditText
+            android:id="@+id/notification_content"
+            android:layout_marginTop="20dp"
+            android:hint="add some content"
+            android:textColorHint="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_notification"
+            android:layout_marginTop="50dp"
+            android:text="Send Notification"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:background="@drawable/button_login"
+            android:layout_marginHorizontal="20dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AdminLogout"
+            android:layout_marginTop="25dp"
+            android:textAllCaps="false"
+            android:text="Admin Logout"
+            android:textColor="@color/black"
+            android:background="@drawable/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/messageView"
+        android:layout_below="@+id/tab">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recyclerView"
+            android:layout_margin="8dp"
+            tools:listitem="@layout/user_tile"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

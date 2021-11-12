@@ -78,13 +78,13 @@ public class settingsUI extends AppCompatActivity {
            Toast.makeText(settingsUI.this, "Something wrong happened", Toast.LENGTH_SHORT).show();
        }
         });
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(settingsUI.this, IntroActivity.class));
-            }
-        });
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FirebaseAuth.getInstance().signOut();
+//                startActivity(new Intent(settingsUI.this, IntroActivity.class));
+//            }
+//        });
         Edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

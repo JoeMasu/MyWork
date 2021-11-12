@@ -5,6 +5,9 @@ public class CategoryModel {
     String Type,Price,Image, addBtn, desc;
     private int numberInCart;
 
+    public CategoryModel() {
+    }
+
     public CategoryModel(int numberInCart) {
         this.numberInCart = numberInCart;
     }
@@ -17,10 +20,14 @@ public class CategoryModel {
         this.numberInCart = numberInCart;
     }
 
+    public CategoryModel(String addBtn) {
+        this.addBtn = addBtn;
+    }
+
     public CategoryModel(String type, String price, String image, String addBtn, String desc) {
-        Type = type;
-        Price = price;
-        Image = image;
+        this.Type = type;
+        this.Price = price;
+        this.Image = image;
         this.addBtn = addBtn;
         this.desc = desc;
     }

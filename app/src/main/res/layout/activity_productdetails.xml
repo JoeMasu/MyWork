@@ -93,7 +93,7 @@
         android:layout_height="50dp"
         android:layout_margin="16dp"
         android:text="Add to Card"
-        android:background="@drawable/orange_button_background"
+        android:background="@drawable/button_login"
         android:gravity="center"
         android:textColor="#ffffff"
         android:textSize="23sp"

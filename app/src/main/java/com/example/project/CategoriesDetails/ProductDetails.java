@@ -1,5 +1,6 @@
 package com.example.project.CategoriesDetails;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,7 +30,7 @@ public class ProductDetails extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
     private int numberOrder = 1;
-    private FoodDomain object;
+    private CategoryModel categoryModel;
     private ManagementCart managementCart;
     private ImageView plusBtn, minusBtn, picFood;
 
@@ -47,9 +48,10 @@ public class ProductDetails extends AppCompatActivity {
         numberOrderTxt = findViewById(R.id.numberOrderTxt);
         picFood = findViewById(R.id.foodPic);
         numberOrderTxt.setText(String.valueOf(numberOrder));
-        title.setText(object.getTitle());
-        price.setText("$" + object.getFee());
-        descr.setText(object.getDescription());
+
+//        title.setText(categoryModel.getType());
+//        price.setText("$" + categoryModel.getPrice());
+//        descr.setText(categoryModel.getDesc());
 
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,15 +73,21 @@ public class ProductDetails extends AppCompatActivity {
         AddCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                object.setNumberInCart(numberOrder);
-                managementCart.insertFood(object);
-
+                invalidateOptionsMenu();
+//                Intent intent = new Intent(ProductDetails.this, ProductDetails.class);
+                Intent intent = new Intent(ProductDetails.this, Cart.class);
+                intent.putExtra("Type", categoryModel.getType());
+                intent.putExtra("Price", categoryModel.getPrice());
+                intent.putExtra("Image", categoryModel.getImage());
+                intent.putExtra("Descr", categoryModel.getDesc());
+                intent.putExtra("Quantity", 1);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 
 
-        imageView.setImageResource(getIntent().getIntExtra("Img",0));
+        imageView.setImageResource(getIntent().getIntExtra("Image",0));
         title.setText(getIntent().getStringExtra("Type"));
         price.setText(getIntent().getStringExtra("Price"));
 

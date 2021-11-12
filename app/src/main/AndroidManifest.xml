@@ -13,7 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
-        <activity android:name=".CategoriesDetails.Cart"></activity>
+        <activity android:name=".Admin.Specials">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.SupportActivity"></activity>
+        <activity android:name=".Admin.Support" />
+        <activity android:name=".Admin.adminHome" />
+        <activity android:name=".CategoriesDetails.Cart" />
         <activity android:name=".CategoriesDetails.Special_Oder" />
         <activity android:name=".UserSettings.EditPassword" />
         <activity android:name=".UserSettings.ChangePassword" />
@@ -21,17 +31,12 @@
         <activity android:name=".CategoriesDetails.Categories" />
         <activity android:name=".Activity.CartListActivity" />
         <activity android:name=".Activity.ShowDetailActivity" />
-        <activity android:name=".Activity.IntroActivity" />
+        <activity android:name=".Activity.IntroActivity">
+        </activity>
         <activity android:name=".CategoriesDetails.ProductDetails" />
         <activity android:name=".Activity.signin" />
         <activity android:name=".Activity.SIngUp" />
-        <activity android:name=".Activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Activity.MainActivity" />
     </application>
 
 </manifest>

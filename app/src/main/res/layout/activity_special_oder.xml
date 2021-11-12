@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,176 +10,74 @@
 
     <include layout="@layout/specialodertoolbar"></include>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
-
-    <TextView
-        android:textColor="@color/black"
-        android:id="@+id/book"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:text="Book Your Order"
-        android:textAlignment="center"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:layout_margin="8dp" />
 
     <ImageView
-        android:layout_width="120dp"
-        android:layout_height="140dp"
-        android:src="@drawable/download">
-    </ImageView>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/linear_ll"
-        android:layout_marginTop="10dp"
-        android:background="@color/food"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp" />
+        android:id="@+id/image_view"
+        android:layout_width="402dp"
+        android:layout_height="211dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="Type"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+        android:layout_marginRight="10dp" />
 
         <EditText
-            android:id="@+id/Uname"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/order"
-            android:layout_marginLeft="8dp"
-            android:hint="Food name"
-            android:textColor="@color/black"
-            android:textSize="18dp" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/gray"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
-
-        <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/txtdata"
+            android:layout_width="302dp"
+            android:background="@drawable/forget"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="Price"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            android:text="Order name"/>
 
-        <EditText
-            android:id="@+id/UEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:hint="From $15"
-            android:inputType="number"
-            android:background="@drawable/order"
-            android:textColor="@color/gray"
-            android:textSize="18dp" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/decr"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtdata"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/forget"
+        android:layout_marginTop="-25dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="description"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnbrowse"
+        android:layout_width="175dp"
+        android:layout_height="59dp"
+        android:layout_below="@+id/decr"
+        android:layout_marginTop="-25dp"
+        android:text="Browse"
+        android:textColor="@color/black"
+        android:background="@drawable/button_login"
+        android:layout_marginLeft="15dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnupload"
+        android:layout_width="175dp"
+        android:layout_height="59dp"
+        android:textColor="@color/black"
+        android:background="@drawable/button_login"
+        android:layout_below="@id/btnbrowse"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="-63dp"
+        android:text="Upload" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancel"
+        android:layout_width="175dp"
+        android:layout_height="59dp"
+        android:layout_below="@id/btnupload"
+        android:layout_marginLeft="120dp"
         android:layout_marginTop="10dp"
-        android:background="@color/gray"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp" />
+        android:background="@drawable/button_login"
+        android:gravity="center"
+        android:text="Cancel"
+        android:textColor="@color/black" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="Description"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/UNumber"
-            android:background="@drawable/order"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="Description"
-            android:inputType="text"
-            android:textColor="@color/gray"
-            android:textSize="18dp" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/gray"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="60dp"
-            android:text="Send Order"
-            android:textStyle="bold"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/button_login" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="60dp"
-            android:textStyle="bold"
-            android:text="Cancel"
-            android:background="@drawable/button_login" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/gray"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp" />
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

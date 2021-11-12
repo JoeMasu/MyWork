@@ -2,6 +2,7 @@ package com.example.project.CategoriesDetails;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,9 +34,6 @@ public class CategorieAdapter extends RecyclerView.Adapter<CategorieAdapter.MyVi
         this.categoryModelList = categoryModelList;
     }
 
-//    public CategorieAdapter(List<CategoryModel> list) {
-//    }
-
     @NonNull
     @NotNull
     @Override
@@ -48,7 +46,6 @@ public class CategorieAdapter extends RecyclerView.Adapter<CategorieAdapter.MyVi
     public void onBindViewHolder(@NonNull @NotNull CategorieAdapter.MyViewHolder holder, int position) {
 
        CategoryModel categoryModel = categoryModelList.get(position);
-
         holder.type.setText(categoryModel.getType().toString().trim());
         holder.price.setText(categoryModel.getPrice().toString().trim());
         Glide.with(holder.img.getContext()).load(categoryModel.getImage()).into(holder.img);
@@ -58,7 +55,9 @@ public class CategorieAdapter extends RecyclerView.Adapter<CategorieAdapter.MyVi
                 Intent intent = new Intent(holder.itemView.getContext(), ProductDetails.class);
                 intent.putExtra("Type", categoryModel.getType());
                 intent.putExtra("Price", categoryModel.getPrice());
-                intent.putExtra("Img", categoryModel.getImage());
+                intent.putExtra("Image", categoryModel.getImage());
+                intent.putExtra("object", (Parcelable) categoryModelList.get(position));
+
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 holder.itemView.getContext().startActivity(intent);
             }

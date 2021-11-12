@@ -23,7 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.project.Adapter.PopularAdapter;
 import com.example.project.CategoriesDetails.Special_Oder;
 import com.example.project.Domain.FoodDomain;
@@ -46,16 +45,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.NotNull;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
-import com.smarteist.autoimageslider.SliderAnimations;
+//import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
+//import com.smarteist.autoimageslider.SliderAnimations;
+//
+//import com.smarteist.autoimageslider.SliderView;
 
-import com.smarteist.autoimageslider.SliderView;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -63,8 +62,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter2;
@@ -83,15 +80,15 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView, recyclerViewPopularList;
     private LinearLayout linearLayout;
-    private LinearLayout linearLayout2;
+    private LinearLayout linearLayout2, linearLayout3;
 
-    SliderView sliderView;
-    int[] images = {R.drawable.cooo,
-            R.drawable.chips0,
-            R.drawable.chips0,
-            R.drawable.chips0,
-            R.drawable.chips0,
-            R.drawable.chips0};
+//    SliderView sliderView;
+//    int[] images = {R.drawable.cooo,
+//            R.drawable.chips0,
+//            R.drawable.chips0,
+//            R.drawable.chips0,
+//            R.drawable.chips0,
+//            R.drawable.chips0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         linearLayout = findViewById(R.id.set);
         linearLayout2 = findViewById(R.id.order);
+        linearLayout3 = findViewById(R.id.Chat);
         prof = findViewById(R.id.profile);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getInstance().getCurrentUser();
@@ -152,15 +150,23 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        linearLayout3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SupportActivity.class);
+                startActivity(intent);
 
-        sliderView = findViewById(R.id.image_slider);
+            }
+        });
 
-        SliderAdapter sliderAdapter = new SliderAdapter(images);
-
-        sliderView.setSliderAdapter(sliderAdapter);
-        sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
-        sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
-        sliderView.startAutoCycle();
+//        sliderView = findViewById(R.id.image_slider);
+//
+//        SliderAdapter sliderAdapter = new SliderAdapter(images);
+//
+//        sliderView.setSliderAdapter(sliderAdapter);
+//        sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
+//        sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
+//        sliderView.startAutoCycle();
 
         recyclerViewCategory();
         recyclerViewPopular();
